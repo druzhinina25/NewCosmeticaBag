@@ -5,6 +5,15 @@ import com.cosmetica.model.Cosmetics;
 import java.util.ArrayList;
 import java.util.List;
 
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+
 public class CosmeticsBag {
     //поля: вместимость, средства
     private int capacity;
@@ -15,12 +24,12 @@ public class CosmeticsBag {
         this.capacity = capacity;
         this.objects = new ArrayList<>();
     }
-    public int getCapacity() {
-        return capacity;
-    }
-    public List<Cosmetics> getMeans() {
-        return objects;
-    }
+   // public int getCapacity() {
+   //     return capacity;
+  //  }
+   // public List<Cosmetics> getMeans() {
+     //   return objects;
+   // }
     // доп методы
     //занятый объём
     public int getOccupiedVolume() {
@@ -32,33 +41,31 @@ public class CosmeticsBag {
     }
 
     //методы : положить, достать, очистить
-    public void addObject(Cosmetics object) {
+    public void addItem(Cosmetics object) {
         int occupiedVolume = getOccupiedVolume();
         if(occupiedVolume + object.getSize()  <= capacity) {
             objects.add(object);
-            System.out.println("средство" + object.getName() + " добавлено");
+            System.out.println("Средство " + object.getName() + " добавлено");
         }
         else {
-            System.out.println("средство" + object.getName() + " не добавлено, так как нет места" );
+            System.out.println("Средство " + object.getName() + " не добавлено, так как нет места" );
         }
     }
     public Cosmetics removeObject(String name) {
         for(Cosmetics object : objects) {
             if(object.getName().equalsIgnoreCase(name)){
                 objects.remove(object);
-                System.out.println("средство" + name + " удалено");
+                System.out.println("Средство " + name + " удалено");
                 return object;
             }
-           // else{
-            //    System.out.println("ошибка");
-              //  return null;
             }
+        System.out.println("Средство " + name + " не найдено");
         return null;
         }
 
     public void clear() {
         objects.clear();
-        System.out.println("косметичка пуста");
+        System.out.println("Косметичка пуста!");
     }
 // метод, показывающий содержимое
     public void showContents() {

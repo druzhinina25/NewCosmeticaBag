@@ -1,5 +1,13 @@
 package com.cosmetica.model;
 
+import lombok.*;
+
+
+@ToString
+@Setter
+@Getter
+@EqualsAndHashCode(callSuper=true)
+
 public class Perfumery extends Cosmetics {
     private String type;
     public static final String[] NAMES = {"Туалетная вода", "Духи"};
@@ -9,15 +17,15 @@ public class Perfumery extends Cosmetics {
         super(name, size);
         this.type = type;
     }
-    public String getType() {
-        return type;
-    }
-    public void setType() {
-        this.type = type;
-    }
-    @Override
-    public String toString() {
-        return "название: " + getName() + ", размер: " + getSize() + ", тип аромата: " + type;
-    }
+  //  public String getType() {
+    //    return type;
+   // }
+  //  public void setType() {
+  //      this.type = type;
+  //  }
+   // @Override
+  //  public String toString() {
+  //      return "название: " + getName() + ", размер: " + getSize() + ", тип аромата: " + type;
+ //   }
 
 }
