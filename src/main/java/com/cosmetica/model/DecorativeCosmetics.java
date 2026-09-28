@@ -9,7 +9,7 @@ import lombok.ToString;
 
 
 @Getter
-@ToString
+//@ToString
 @Setter
 @EqualsAndHashCode(callSuper=true)
 
@@ -28,8 +28,8 @@ public class DecorativeCosmetics extends Cosmetics{
  //   public void setQuality(){
  //       this.quality = quality;
  //   }
- //   @Override
- //   public String toString() {
-  //      return  "название: " + getName() + ", размер: " + getSize() + ", качество: " + quality;
- //   }
+    @Override
+    public String toString() {
+        return  "название: " + getName() + ", размер: " + getSize() + ", качество: " + quality;
+    }
 }

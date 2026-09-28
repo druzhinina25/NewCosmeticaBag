@@ -31,8 +31,8 @@ public abstract class Cosmetics {
     //    this.size = size;
  //   }
 
-//    @Override
-  //  public String toString() {
-   //     return "название: " + name + ", размер: " + size;
-  //  }
+    @Override
+    public String toString() {
+        return "название: " + name + ", размер: " + size;
+    }
 }

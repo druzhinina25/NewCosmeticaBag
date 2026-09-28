@@ -3,7 +3,7 @@ package com.cosmetica.model;
 import lombok.*;
 
 
-@ToString
+//@ToString
 @Setter
 @Getter
 @EqualsAndHashCode(callSuper=true)
@@ -23,9 +23,9 @@ public class Perfumery extends Cosmetics {
   //  public void setType() {
   //      this.type = type;
   //  }
-   // @Override
-  //  public String toString() {
-  //      return "название: " + getName() + ", размер: " + getSize() + ", тип аромата: " + type;
- //   }
+    @Override
+    public String toString() {
+        return "название: " + getName() + ", размер: " + getSize() + ", тип аромата: " + type;
+    }
 
 }

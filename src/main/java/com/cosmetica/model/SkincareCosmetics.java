@@ -5,7 +5,7 @@ import lombok.*;
 
 @EqualsAndHashCode(callSuper=true)
 @Getter
-@ToString
+//@ToString
 @Setter
 
 
@@ -25,8 +25,8 @@ public class SkincareCosmetics extends Cosmetics{
    // public void setQuality(){
    //     this.quality = quality;
    // }
-   // @Override
-  //  public String toString() {
-   //     return  "название: " + getName() + ", размер: " + getSize() + ", качество: " + quality;
- //   }
+    @Override
+    public String toString() {
+        return  "название: " + getName() + ", размер: " + getSize() + ", качество: " + quality;
+    }
 }

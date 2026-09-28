@@ -7,17 +7,30 @@ import com.cosmetica.model.Perfumery;
 import com.cosmetica.model.SkincareCosmetics;
 import lombok.NoArgsConstructor;
 
+import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
+
+
 @NoArgsConstructor
 public class CosmeticsService {
-    private final CosmeticsBag bag = new CosmeticsBag();
+    private final CosmeticsBag bag = new CosmeticsBag(20);
     private final Scanner scanner = new Scanner(System.in);
+    private final FileStorage storage = new FileStorage();
     // private final Random random = new Random();
 
-
+    public void clearBag(){
+        bag.clear();
+        System.out.println("Косметичка очищена!");
+    }
+    public void showBag(){
+        bag.showContents();
+    }
+    public void removeItem(String name) {
+        bag.removeObject(name);
+    }
     //добавление нового средства в косметичку
     public void addNewItem() {
         System.out.println("Добавление средства");
@@ -182,7 +195,16 @@ public class CosmeticsService {
         } else {
             return new Perfumery(name, size, quality);
         }
+    }
+    public void loadBag(String path) throws IOException {
+        CosmeticsBag load = storage.loading(path);
+        bag.clear();
+        for (Cosmetics item: load.getObjects()){
+            bag.addItem(item);
+        }
 
-
+    }
+    public void saveBag(String path) throws IOException{
+        storage.save(bag,path);
     }
 }

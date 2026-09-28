@@ -6,24 +6,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Data
+
 @NoArgsConstructor
 
 public class CosmeticsBag {
     //поля: вместимость, средства
-    private int capacity;
-    private List<Cosmetics> objects;
+    private int capacity = 20;
+    private List<Cosmetics> objects = new ArrayList<>();
 
     //конструктор - создаётся объект
     public CosmeticsBag(int capacity) {
-        this.capacity = capacity;
-        this.objects = new ArrayList<>();
-    }
+       this.capacity = capacity;
+  //      this.objects = new ArrayList<>();
+   }
    // public int getCapacity() {
    //     return capacity;
   //  }
